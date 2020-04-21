@@ -7,7 +7,7 @@ import {
 	router
 } from './router/index'
 Vue.config.productionTip = false
-
+console.log(process.env.VUE_APP_URLNAME)
 new Vue({
 	router,
 	store,
