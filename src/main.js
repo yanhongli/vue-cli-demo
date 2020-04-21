@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import ElementUI, { Message } from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
 import {
 	store
@@ -7,7 +9,8 @@ import {
 	router
 } from './router/index'
 Vue.config.productionTip = false
-console.log(process.env.VUE_APP_URLNAME)
+Vue.prototype.$message = Message
+Vue.use(ElementUI)
 new Vue({
 	router,
 	store,
