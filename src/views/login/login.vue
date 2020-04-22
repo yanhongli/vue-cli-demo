@@ -1,5 +1,5 @@
 <template>
-	<el-row class='login' type='flex' justify='end'>
+	<el-row class='login unauth-bg' type='flex' justify='end'>
 		<el-row type='flex' align='middle'>
 			<el-card class='card'>
 				<el-row type='flex' align='middle' justify='center' style='margin-bottom: 20px;'>
@@ -26,6 +26,11 @@
 					</el-form-item>
 					<el-form-item>
 						<el-button style='width: 100%' type='primary' @click='login'>登录</el-button>
+					</el-form-item>
+					<el-form-item>
+						<el-row type='flex'>
+							<router-link to="/pwd">忘记密码</router-link>	
+						</el-row>						
 					</el-form-item>
 				</el-form>
 			</el-card>
@@ -90,10 +95,6 @@
 
 <style scoped lang="scss">
 	.login {
-		min-height: 100vh;
-		background: url(../../assets/login-topic.png) 20% center no-repeat, url(../../assets/login-bg.png) no-repeat;
-
-		/* background-size: contain, auto; */
 		.card {
 			width: 450px;
 			margin-right: 160px;
