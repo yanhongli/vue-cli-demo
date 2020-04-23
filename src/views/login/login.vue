@@ -14,8 +14,8 @@
 					</el-form-item>
 					<el-form-item prop='code'>
 						<el-row type='flex'>
-							<el-input style='width: 100px;' placeholder='请输入验证码' v-model='formData.code' />
-							<img style='margin: 0 15px;' :src='codeLink' />
+							<el-input class='validate-code-input' placeholder='请输入验证码' v-model='formData.code' />
+							<img class="validate-code-img" :src='codeLink' />
 							<a href='javascript:void(0)' @click="codeRandomHandle">换一张</a>
 						</el-row>
 					</el-form-item>
@@ -25,12 +25,16 @@
 						</el-row>
 					</el-form-item>
 					<el-form-item>
-						<el-button style='width: 100%' type='primary' @click='login'>登录</el-button>
+						<el-button style='width: 100%' type='primary' :loading='loading' @click='login'>登录</el-button>
 					</el-form-item>
 					<el-form-item>
-						<el-row type='flex'>
-							<router-link to="/pwd">忘记密码</router-link>	
-						</el-row>						
+						<el-row type='flex' justify='space-between'>
+							<router-link to="/pwd">忘记密码</router-link>
+							<template v-if='false'>
+								<el-link type='primary' @click='reset'>重置</el-link>
+								<el-link type='success' @click='validate("name")'>验证用户名</el-link>
+							</template>
+						</el-row>
 					</el-form-item>
 				</el-form>
 			</el-card>
@@ -39,12 +43,16 @@
 </template>
 
 <script>
+	import {
+		mapActions
+	} from 'vuex'
 	export default {
 		data() {
 			return {
 				formData: {
 					name: '',
 					pwd: '',
+					check: false
 				},
 				formRules: {
 					name: [{
@@ -72,7 +80,8 @@
 						},
 					}]
 				},
-				codeRandom: Math.random()
+				codeRandom: Math.random(),
+				loading: false
 			}
 		},
 		computed: {
@@ -82,13 +91,27 @@
 		},
 		methods: {
 			login() {
-				this.$refs.formRef.validate((f) => {
-					console.log(f)
+				this.$refs.formRef.validate(async (f) => {
+					if (f) {
+						this.loading = true
+						await this.loginReq()
+						this.$message.success('登录成功')
+						this.loading = false
+					}
 				})
 			},
 			codeRandomHandle() {
 				this.codeRandom = Math.random()
-			}
+			},
+			validate(formItemName) {
+				this.$refs.formRef.validateField(formItemName)
+			},
+			reset() {
+				this.$refs.formRef.resetFields()
+			},
+			...mapActions({
+				loginReq: 'login'
+			})
 		}
 	}
 </script>
