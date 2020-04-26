@@ -25,7 +25,7 @@
 						</el-row>
 					</el-form-item>
 					<el-form-item>
-						<el-button style='width: 100%' type='primary' :loading='loading' @click='login'>登录</el-button>
+						<el-button style='width: 100%' type='primary' :loading='loading' @click='loginClick'>登录</el-button>
 					</el-form-item>
 					<el-form-item>
 						<el-row type='flex' justify='space-between'>
@@ -43,15 +43,14 @@
 </template>
 
 <script>
-	import {
-		mapActions
-	} from 'vuex'
+	import { mapMutations } from 'vuex'
+	import { login, routes, info } from '../../api'
 	export default {
 		data() {
 			return {
 				formData: {
-					name: '',
-					pwd: '',
+					name: 'test01',
+					pwd: 'wucuiping0412',
 					check: false
 				},
 				formRules: {
@@ -86,15 +85,22 @@
 		},
 		computed: {
 			codeLink() {
-				return `http://qa.e.163.com/user/open/api/v1/user/getVerifyCode?r=${this.codeRandom}`
+				return `http://e.163.com/user/open/api/v1/user/getVerifyCode?r=${this.codeRandom}`
 			}
 		},
 		methods: {
-			login() {
+			loginClick() {
 				this.$refs.formRef.validate(async (f) => {
 					if (f) {
 						this.loading = true
-						await this.loginReq()
+						let loginRet = await login({
+							account: this.formData.name,
+							password: this.formData.pwd,
+							code: this.formData.code
+						})
+						this.SET_TOKEN(loginRet.token)
+						await info()
+						await routes()
 						this.$message.success('登录成功')
 						this.loading = false
 					}
@@ -109,9 +115,7 @@
 			reset() {
 				this.$refs.formRef.resetFields()
 			},
-			...mapActions({
-				loginReq: 'login'
-			})
+			...mapMutations(['SET_TOKEN'])
 		}
 	}
 </script>
