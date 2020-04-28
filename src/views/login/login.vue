@@ -44,14 +44,15 @@
 
 <script>
 	import { mapMutations } from 'vuex'
-	import { login, routes, info } from '../../api'
+	import axios from 'axios'
+	import { routes } from '../../api'
 	export default {
 		data() {
 			return {
 				formData: {
 					name: 'test01',
 					pwd: 'wucuiping0412',
-					check: false
+					check: true
 				},
 				formRules: {
 					name: [{
@@ -94,14 +95,12 @@
 					if (f) {
 						this.loading = true
 						try {
-							let loginRet = await login({
+							await this.$store.dispatch('login', {
 								account: this.formData.name,
 								password: this.formData.pwd,
 								code: this.formData.code
 							})
-							this.SET_TOKEN(loginRet.token)
-							await info()
-							await routes()
+							await axios.all([this.$store.dispatch('info'), routes()])
 							this.$message.success('登录成功')	
 						} catch (error) {
 							this.$message.error(error.msg)	

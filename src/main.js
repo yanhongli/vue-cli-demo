@@ -9,11 +9,33 @@ import {
 import {
 	router
 } from './router/index'
+import axios from 'axios';
 Vue.config.productionTip = false
 Vue.prototype.$message = Message
 Vue.use(ElementUI)
-new Vue({
+const vm = new Vue({
 	router,
 	store,
 	render: h => h(App),
-}).$mount('#app')
+})
+
+async function init() {
+	try {
+		if (!['/login'].some(e => location.href.includes(e))) {
+			if (localStorage.getItem('token')) {
+				await axios.all([store.dispatch('info'), store.dispatch('routes')])
+			} else {
+				router.push('/login')
+			}
+		}
+	} catch (error) {
+		vm.$nextTick(() => {
+			vm.$message.error(error.msg)
+			router.push('/login')
+		})
+	}
+	finally {
+		vm.$mount('#app')
+	}
+}
+init()
