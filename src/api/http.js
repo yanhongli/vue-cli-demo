@@ -12,7 +12,7 @@ http.interceptors.response.use((response) => {
     if(response.data.code === 200) {
         return response.data.data
     }
-    return response
+    return Promise.reject(response.data)
 },
 function(error) {
     return Promise.reject(error)

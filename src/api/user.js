@@ -1,6 +1,6 @@
 import http from './http'
 export function login(d) {
-    return http.post('/user/open/api/v1/user/login', Object.assign({ 
+    return http.post('/user/open/api/v2/user/login', Object.assign({ 
         way: 3,
         source: 1,
         tenantCode: process.env.VUE_APP_TENANTCODE

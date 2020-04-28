@@ -93,16 +93,22 @@
 				this.$refs.formRef.validate(async (f) => {
 					if (f) {
 						this.loading = true
-						let loginRet = await login({
-							account: this.formData.name,
-							password: this.formData.pwd,
-							code: this.formData.code
-						})
-						this.SET_TOKEN(loginRet.token)
-						await info()
-						await routes()
-						this.$message.success('登录成功')
-						this.loading = false
+						try {
+							let loginRet = await login({
+								account: this.formData.name,
+								password: this.formData.pwd,
+								code: this.formData.code
+							})
+							this.SET_TOKEN(loginRet.token)
+							await info()
+							await routes()
+							this.$message.success('登录成功')	
+						} catch (error) {
+							this.$message.error(error.msg)	
+						}
+						finally{
+							this.loading = false
+						}						
 					}
 				})
 			},
