@@ -4,16 +4,20 @@
     <el-container>
       <el-aside>
         <el-menu>
-          <el-submenu index="menu.id" v-for="menu in menus" :key="menu.id">
+          <el-submenu :index="menu.id | toString" v-for="menu in menus" :key="menu.id">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>{{menu.name}}</span>
             </template>
-			<template v-if='menu.children && menu.children.length'>
-				<el-menu-item :index="childMenu.id" v-for="childMenu in menu.children" :key="childMenu.id">
-					<span>{{childMenu.name}}</span>
-				</el-menu-item>
-			</template>
+            <template v-if="menu.children && menu.children.length">
+              <el-menu-item
+                :index="childMenu.id | toString"
+                v-for="childMenu in menu.children"
+                :key="childMenu.id"
+              >
+                <span>{{childMenu.name}}</span>
+              </el-menu-item>
+            </template>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -32,7 +36,7 @@ export default {
     ...mapGetters({ menus: "GET_ROUTES" })
   },
   mounted() {
-    console.log(this.$store.getters.GET_ROUTES);
+    
   }
 };
 </script>

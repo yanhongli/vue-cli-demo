@@ -10,6 +10,7 @@ import {
 	router
 } from './router/index'
 import axios from 'axios';
+import './filter'
 Vue.config.productionTip = false
 Vue.prototype.$message = Message
 Vue.use(ElementUI)

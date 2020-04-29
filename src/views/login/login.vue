@@ -45,7 +45,6 @@
 <script>
 	import { mapMutations } from 'vuex'
 	import axios from 'axios'
-	import { routes } from '../../api'
 	export default {
 		data() {
 			return {
@@ -100,8 +99,11 @@
 								password: this.formData.pwd,
 								code: this.formData.code
 							})
-							await axios.all([this.$store.dispatch('info'), routes()])
-							this.$message.success('登录成功')	
+							await axios.all([this.$store.dispatch('info'), this.$store.dispatch('routes')])
+							this.$message.success('登录成功')
+							this.$nextTick(() => {
+								this.$router.push('/')
+							})
 						} catch (error) {
 							this.$message.error(error.msg)	
 						}
