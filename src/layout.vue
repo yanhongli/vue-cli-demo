@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header>this is a header</el-header>
+    <el-header>{{userInfo.name}}</el-header>
     <el-container>
       <el-aside>
         <el-menu>
@@ -33,7 +33,7 @@
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters({ menus: "GET_ROUTES" })
+    ...mapGetters({ menus: "GET_ROUTES", userInfo: "GET_USERINFO" })
   },
   mounted() {
     
