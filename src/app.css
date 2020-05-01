@@ -1,0 +1,16 @@
+.unauth-bg {
+  min-height: 100vh;
+  background: url(./assets/login-topic.png) 20% center no-repeat,
+    url(./assets/login-bg.png) no-repeat;
+}
+.validate-code-input {
+  width: 6.25rem;
+  margin-right: 0.9375rem;
+}
+.validate-code-img {
+  margin-right: 0.9375rem;
+}
+.resposive-img {
+  max-height: 100%;
+  max-width: 100%;
+}

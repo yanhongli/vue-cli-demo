@@ -8,24 +8,24 @@ Vue.use(VueRouter)
 export const router = new VueRouter({
 	routes: [{
 			path: '',
-			component: () => import('../layout.vue'),
+			component: () => import('../Layout.vue'),
 			children: [{
 					path: '/',
 					redirect: '/home'
 				},
 				{
 					path: 'home',
-					component: () => import('../views/home.vue')
+					component: () => import('../views/Home.vue')
 				}
 			]
 		},
 		{
 			path: '/login',
-			component: () => import('../views/login/login.vue')
+			component: () => import('../views/login/Login.vue')
 		},
 		{
 			path: '/pwd',
-			component: () => import('../views/fpwd/findPassword.vue')
+			component: () => import('../views/fpwd/FindPassword.vue')
 		},
 		{
 			path: '**',

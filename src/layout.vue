@@ -1,6 +1,15 @@
 <template>
   <el-container>
-    <el-header>{{userInfo.name}}</el-header>
+    <el-header>
+      <el-row type='flex' justify='space-between' style="height: 100%">
+        <div>
+          image
+        </div>
+        <el-col>
+          <img :src='userInfo.avatar' class="resposive-img"/>
+        </el-col>
+      </el-row>
+    </el-header>
     <el-container>
       <el-aside>
         <el-menu>
