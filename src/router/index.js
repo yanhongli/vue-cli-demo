@@ -15,21 +15,37 @@ export const router = new VueRouter({
 				},
 				{
 					path: 'home',
-					component: () => import('../views/Home.vue')
+					component: () => import('../views/Home.vue'),
+					meta: {
+						title: '首页'
+					}
 				}
 			]
 		},
 		{
 			path: '/login',
-			component: () => import('../views/login/Login.vue')
+			component: () => import('../views/login/Login.vue'),
+			meta: {
+				title: '登录'
+			}
 		},
 		{
 			path: '/pwd',
-			component: () => import('../views/fpwd/FindPassword.vue')
+			component: () => import('../views/fpwd/FindPassword.vue'),
+			meta: {
+				title: '找回密码'
+			}
 		},
 		{
 			path: '**',
 			redirect: '/home'
 		}
 	]
+})
+
+router.beforeEach(function(to, from, next) {
+	if(to.meta && to.meta.title) {
+		document.title = to.meta.title
+	}
+	next()
 })

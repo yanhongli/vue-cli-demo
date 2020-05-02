@@ -94,6 +94,7 @@ export default {
 }
 .aside-menu {
   overflow: auto;
+  width: 250px !important;
   height: calc(100vh - 120px);
   .menu-container {
     height: 100%;
