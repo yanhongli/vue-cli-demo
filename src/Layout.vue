@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="border-bottom: 1px solid #dbdbdb;">
+    <el-header class="header">
       <el-row type="flex" justify="space-between" style="height: 100%">
         <el-row type="flex" align="middle">
           <span class="logo"></span>
@@ -26,8 +26,8 @@
       </el-row>
     </el-header>
     <el-container>
-      <el-aside>
-        <el-menu>
+      <el-aside class="aside-menu">
+        <el-menu class="menu-container">
           <template v-for="(menu, index) in menus">
             <template v-if="menu.children && menu.children.length">
               <el-submenu :index="menu.id | toString" :key="menu.id">
@@ -55,11 +55,13 @@
           </template>
         </el-menu>
       </el-aside>
-      <el-main>
+      <el-main class="main">
         <router-view></router-view>
       </el-main>
     </el-container>
-    <el-footer>this is a footer</el-footer>
+    <el-footer class="footer">
+      <el-row type="flex" align="middle" style="height: 100%;" justify="center">2020-2030&copy;liyanhong</el-row>
+    </el-footer>
   </el-container>
 </template>
 
@@ -86,5 +88,20 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.header {
+  border-bottom: 1px solid #dbdbdb;
+}
+.aside-menu {
+  overflow: auto;
+  height: calc(100vh - 120px);
+  .menu-container {
+    height: 100%;
+  }
+}
+.main {
+}
+.footer {
+  border-top: 1px solid #dbdbdb;
+}
 </style>
