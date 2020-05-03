@@ -12,6 +12,7 @@ import {
 import axios from 'axios';
 import './filter'
 Vue.config.productionTip = false
+Vue.config.performance = true
 Vue.prototype.$message = Message
 Vue.use(ElementUI)
 const vm = new Vue({

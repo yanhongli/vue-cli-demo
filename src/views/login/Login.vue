@@ -106,6 +106,7 @@
 							})
 						} catch (error) {
 							this.$message.error(error.msg)	
+							this.codeRandomHandle()
 						}
 						finally{
 							this.loading = false

@@ -1,3 +1,6 @@
+body{
+	background: #fafafa;
+}
 .unauth-bg{
 	min-height: 100vh;
 	background: url(./assets/login-topic.png) 20% center no-repeat, url(./assets/login-bg.png) no-repeat;
@@ -16,6 +19,9 @@
 .mr-10{
 	margin-right: 10px !important;
 }
+.mb-20 {
+	margin-bottom: 20px !important;
+}
 .logo {
 	display: block;
 	height: 40px;
@@ -30,4 +36,7 @@
 }
 ::-webkit-scrollbar-thumb {
 	background: #dbdbdb;
+}
+.cursor-pointer{
+	cursor: pointer;
 }
