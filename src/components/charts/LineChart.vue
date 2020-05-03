@@ -5,6 +5,11 @@
 import echarts from "echarts";
 export default {
   props: ["data"],
+  data() {
+    return {
+      chart: null
+    }
+  },
   methods: {
     draw() {
       let option = {
@@ -25,14 +30,14 @@ export default {
       };
       let line = echarts.init(this.$el);
       line.setOption(option);
+      this.chart = line;
     }
   },
   mounted() {
     this.resizeHandle = () => {
-      console.log('resize')
-      this.draw()
+      this.chart.resize()
     };
-    this.resizeHandle();
+    this.draw();
     window.addEventListener('resize', this.resizeHandle)
     this.$once('hook:beforeDestroy', () => {
       console.log('hook:beforedestroy')
