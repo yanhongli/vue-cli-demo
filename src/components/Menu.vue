@@ -13,6 +13,7 @@
                 :index="childMenu.id | toString"
                 v-for="childMenu in menu.children"
                 :key="childMenu.id"
+                @click="navigate(childMenu)"
               >
                 <span>{{childMenu.name}}</span>
               </el-menu-item>
@@ -20,7 +21,7 @@
           </el-submenu>
         </template>
         <template v-else>
-          <el-menu-item :key="menu.id">
+          <el-menu-item :key="menu.id" @click="navigate(menu)">
             <i :class="[icons[index]]"></i>
             <span slot="title">{{menu.name}}</span>
           </el-menu-item>
@@ -50,6 +51,11 @@ export default {
       ],
       isCollapse: true
     };
+  },
+  methods: {
+    navigate(menu) {
+      this.$router.push({ path: menu.path });
+    }
   }
 };
 </script>

@@ -18,6 +18,7 @@
 		color: #2c3e50;
 		min-height: 100vh;
 		font-size: 14px;
+		position: relative;
 	}
 	html, body{
 		margin: 0;

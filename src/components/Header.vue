@@ -5,7 +5,7 @@
         <span class="logo"></span>
       </el-row>
       <el-row type="flex" align="middle">
-        <el-input place-holder="请输入搜索内容" class="mr-10" suffix-icon="el-icon-search"></el-input>
+        <el-input placeholder="请输入搜索内容" class="mr-10" size="small" suffix-icon="el-icon-search"></el-input>
         <el-dropdown>
           <el-row type="flex" align="middle" style="width: 80px;">
             <img :src="userInfo.avatar" class="resposive-img mr-10" height="30" />

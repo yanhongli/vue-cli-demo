@@ -19,6 +19,13 @@ export const router = new VueRouter({
 					meta: {
 						title: '首页'
 					}
+				},
+				{
+					path: 'account',
+					component: () => import('../views/account/Account.vue'),
+					meta: {
+						title: '账户列表'
+					}
 				}
 			]
 		},
@@ -42,7 +49,17 @@ export const router = new VueRouter({
 		}
 	]
 })
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
 
+const originalReplace = VueRouter.prototype.replace
+VueRouter.prototype.replace = function repalce(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalReplace.call(this, location, onResolve, onReject)
+  return originalReplace.call(this, location).catch(err => err)
+}
 router.beforeEach(function(to, from, next) {
 	if(to.meta && to.meta.title) {
 		document.title = to.meta.title

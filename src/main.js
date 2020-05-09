@@ -3,6 +3,7 @@ import ElementUI, { Message } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './app.scss'
 import App from './App.vue'
+import Progress from './components/Progress.vue'
 import {
 	store
 } from './store/index'
@@ -38,6 +39,18 @@ async function init() {
 	}
 	finally {
 		vm.$mount('#app')
+		new Vue({
+			store,
+			render: (h) => h(Progress)
+		}).$mount('#progress')
+		let i = 0;
+		let pointer = setInterval(() => {
+			if(i >= 100) clearInterval(pointer)
+			else {
+				i += 10
+				store.commit('SET_PERCENTAGE', i)
+			}
+		}, 1000);
 	}
 }
 init()

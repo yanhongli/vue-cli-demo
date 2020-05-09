@@ -4,7 +4,9 @@
     <el-container>
       <left-menu :menus="menus"></left-menu>
       <el-main class="main">
-        <router-view></router-view>
+        <!-- <transition name="slide"> -->
+          <router-view></router-view>
+        <!-- </transition>         -->
       </el-main>
     </el-container>
     <el-footer class="footer">
@@ -41,5 +43,27 @@ export default {
 .footer {
   border-top: 1px solid #dbdbdb;
   background: white;
+}
+.slide-enter-active{
+  transition: all 0.5s ease;
+}
+.slide-leave-active {
+  transition: all 0.5s ease;
+}
+.slide-enter{
+  transform: translateX(100%);
+  opacity: 0.5;
+} 
+.slide-leave {
+  transform: translateX(100%);
+  opacity: 1;
+}
+.slide-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-leave-to {
+  transform: translateX(-100%);
+  opacity: 0.5;
 }
 </style>
