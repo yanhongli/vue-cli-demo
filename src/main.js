@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import ElementUI, { Message } from 'element-ui';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'element-ui/lib/theme-chalk/index.css';
+import VueLazyload from 'vue-lazyload'
 import './app.scss'
 import App from './App.vue'
 import Progress from './components/Progress.vue'
@@ -16,6 +18,7 @@ Vue.config.productionTip = false
 Vue.config.performance = true
 Vue.prototype.$message = Message
 Vue.use(ElementUI)
+Vue.use(VueLazyload)
 const vm = new Vue({
 	router,
 	store,

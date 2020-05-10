@@ -26,6 +26,13 @@ export const router = new VueRouter({
 					meta: {
 						title: '账户列表'
 					}
+				},
+				{
+					path: 'imgs',
+					component: () => import('../views/imgs/imgs.vue'),
+					meta: {
+						title: '图片库'
+					}
 				}
 			]
 		},
