@@ -1,0 +1,43 @@
+body {
+  background: #fafafa;
+}
+.unauth-bg {
+  min-height: 100vh;
+  background: url(./assets/login-topic.png) 20% center no-repeat,
+    url(./assets/login-bg.png) no-repeat;
+}
+.validate-code-input {
+  width: 6.25rem;
+  margin-right: 0.9375rem;
+}
+.validate-code-img {
+  margin-right: 0.9375rem;
+}
+.resposive-img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.mr-10 {
+  margin-right: 10px !important;
+}
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+.logo {
+  display: block;
+  height: 40px;
+  width: 100px;
+  background: url(./assets/logo.png) center no-repeat;
+  background-size: contain;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: rgba(219, 219, 219, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
