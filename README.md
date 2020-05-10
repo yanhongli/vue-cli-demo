@@ -1,50 +1,21 @@
-# vue-cli-demo
+### 项目描述-易站demo
+为了分析客户落地页的使用情况，特开发一套，用户在落地页使用习惯监测的可视化分析平台
 
-## Project setup
-```
-npm install
-```
+### 项目运行
+前端框架选型：Vue + elementUI + Vue-router + Vue-store
+Vue：良好的前端响应式渐进式的框架
+elementUI：使用Vue开发的一套组件库
+Vue-router：良好的前端路由状态管理工具
+Vue-store：一款单项数据流的集中式状态管理工具，让数据的流动监测变得更加的可以清晰，更大的优点是状态的管理是响应式的，为整个网站的运行提供良好的数据共享服务
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### 业务介绍
+demo示例中包含的功能有：登录、找回密码、首页、账户列表
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 登录
+使用Vue-form 使用响应式的表单验证功能
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-## syntax
-`参考文献 https://github.com/guodongxiaren/README`
-
-### 树状结构
-`
->root
->>children
->>>grandson<br/>
-`
-### 图片链接
-[![](https://yuuichung.github.io/images/hexo-readme/15.png)](https://www.baidu.com '百度')
-
-### 代码片段
-````javascript
-var body = document.querySelector('body')
-var text = 'welcome to China'
-body.innerHTML = `<div>
-                    ${text}
-                  </div>`
-````
-### 表格
-| 左对齐 | 右对齐 | 居中对齐 |
-| :-| -: | :-: |
-| 我很好 | 你呢 | 我在哪 |
-| 今天 | 明天 | 后天 |
+## 找回密码
+使用Vue-form 使用响应式的表单验证功能
+## 首页
+使用echarts可视化的展示出用户的数据分析
+## 账户列表
