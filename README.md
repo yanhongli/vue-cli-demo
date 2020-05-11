@@ -2,7 +2,7 @@
 为了分析客户落地页的使用情况，特开发一套，用户在落地页使用习惯监测的可视化分析平台
 
 ### 项目运行
-前端框架选型：Vue + elementUI + Vue-router + Vue-store
+前端框架选型：Vue + elementUI + Vue-router + Vuex
 Vue：良好的前端响应式渐进式的框架
 elementUI：使用Vue开发的一套组件库
 Vue-router：良好的前端路由状态管理工具
