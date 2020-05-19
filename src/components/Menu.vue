@@ -47,6 +47,12 @@ export default {
         "el-icon-setting",
         "el-icon-s-custom",
         "el-icon-tickets",
+        "el-icon-document-checked",
+        "el-icon-menu",
+        "el-icon-document",
+        "el-icon-setting",
+        "el-icon-s-custom",
+        "el-icon-tickets",
         "el-icon-document-checked"
       ],
       isCollapse: true

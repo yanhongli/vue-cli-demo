@@ -10,7 +10,7 @@
 						<el-input placeholder='请输入用户名' v-model='formData.name' />
 					</el-form-item>
 					<el-form-item prop='pwd'>
-						<el-input placeholder='请输入密码' v-model='formData.pwd' />
+						<el-input type="password" placeholder='请输入密码' v-model='formData.pwd' />
 					</el-form-item>
 					<el-form-item prop='code'>
 						<el-row type='flex'>
@@ -49,8 +49,8 @@
 		data() {
 			return {
 				formData: {
-					name: 'test01',
-					pwd: 'wucuiping0412',
+					name: 'bjwucuiping',
+					pwd: '123456',
 					check: true
 				},
 				formRules: {

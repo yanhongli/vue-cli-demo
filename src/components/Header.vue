@@ -7,7 +7,7 @@
       <el-row type="flex" align="middle">
         <el-input placeholder="请输入搜索内容" class="mr-10" size="small" suffix-icon="el-icon-search"></el-input>
         <el-dropdown>
-          <el-row type="flex" align="middle" style="width: 80px;">
+          <el-row type="flex" align="middle">
             <img :src="userInfo.avatar" class="resposive-img mr-10" height="30" />
             <a>{{userInfo.name}}</a>
           </el-row>

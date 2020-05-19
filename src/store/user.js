@@ -1,4 +1,4 @@
-import http from '../api/http'
+import { login, info, routes } from '../api'
 export default {
 	state: {
 		userInfo: {},
@@ -36,7 +36,7 @@ export default {
 	},
 	actions: {
 		async login(store, args = {}) {
-			let ret = await http.post('/user/open/api/v2/user/login', Object.assign({
+			let ret = await login(Object.assign({
 				way: 3,
 				source: 1,
 				tenantCode: process.env.VUE_APP_TENANTCODE
@@ -44,11 +44,11 @@ export default {
 			store.commit('SET_TOKEN', ret.token)
 		},
 		async info(store) {
-			let ret = await http.get(`/user/open/api/v1/user/current`)
+			let ret = await info()
 			store.commit('SET_USERINFO', ret)
 		},
 		async routes(store) {
-			let ret = await http.get(`/user/open/api/v1/permission/routes`)
+			let ret = await routes()
 			store.commit('SET_ROUTES', ret)
 		}
 	}
